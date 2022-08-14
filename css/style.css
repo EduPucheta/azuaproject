@@ -1,7 +1,3 @@
-/* 
-npm init
-sass --watch scss/style.scss css/style.css 
-*/
 * {
   margin: 0;
   padding: 0;
@@ -11,13 +7,17 @@ body {
   font-weight: normal;
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background-image: url(/assets/memphis-mini.png);
+}
+body header a img {
+  margin: 5px;
+  height: 70px;
+  width: 120px;
 }
 body div {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-around;
 }
 body div section {
@@ -44,50 +44,36 @@ body div section {
 }
 
 .bttn-color {
-  background-color: #2100fa;
+  background-color: #343050;
   border: none;
 }
 .bttn-color:hover {
   color: #eb5140;
-  background-color: #2100fa;
+  background-color: #343050;
   transition: 0.4s;
 }
 
 .navYfooter {
-  background-color: #343050;
+  background-color: #5b585f;
   padding: 24px;
-}
-
-.container, .my-5 {
-  background-color: rgb(241, 241, 241);
-}
-.container div, .my-5 div {
-  color: black;
 }
 
 .py-5 {
   padding-top: 1.5rem !important;
 }
 
-h1, .subtitulo {
-  color: black;
-}
-
 h2 {
   border-left: 100px;
   display: flex;
   justify-content: center;
-  color: white;
 }
 
 .Productos {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 .Productos .Productos__child {
   margin: 20px;
-  width: 100%;
 }
 
 p {
@@ -96,10 +82,9 @@ p {
 
 .Contacto {
   margin: 10px;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  max-width: 850px;
 }
 .Contacto iframe {
   width: 100%;
@@ -150,7 +135,7 @@ select {
 
 .bttn {
   display: block;
-  background: #2100fa;
+  background: #343050;
   width: 75%;
   color: white;
   padding: 0.5rem;
@@ -165,6 +150,10 @@ select {
   background: #e74c3c;
 }
 
+.Footer__socialMedia {
+  size: 20px;
+}
+
 /*La siguiente media query es para que la grilla solo se aplique en desktop
   y para que se muestren los elementos en una sola columna en mobile*/
 @media screen and (min-width: 768px) {
@@ -173,26 +162,42 @@ select {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 60px 25px 40px;
     grid-row-gap: 15px;
-    grid-template-areas: "Footer__social Footer__social Footer__social" "newletter_label newletter_label button__newsletter" "newletter_input newletter_input button__newsletter";
-  }
-  .grilla .newletter_label {
-    grid-area: newletter_label;
-  }
-  .grilla .newletter_input {
-    grid-area: newletter_input;
-  }
-  .grilla .button__newsletter {
-    grid-area: button__newsletter;
-  }
-  .grilla .Footer__social {
-    grid-area: Footer__social;
-    display: flex;
-    flex-direction: row;
+    grid-template-areas: "whatsapp instagram facebook" "newletter_label newletter_label button__newsletter" "newletter_input newletter_input button__newsletter";
   }
 }
+.whatsapp {
+  grid-area: whatsapp;
+}
+
+.instagram {
+  grid-area: instagram;
+}
+
+.facebook {
+  grid-area: facebook;
+}
+
+.newletter_label {
+  grid-area: newletter_label;
+}
+
+.newletter_input {
+  grid-area: newletter_input;
+}
+
+.button__newsletter {
+  grid-area: button__newsletter;
+}
+
+.Footer__socialMedia {
+  display: flex;
+  justify-content: center;
+}
+
 .navYfooter .newletter_label {
   color: white;
 }
+
 .navYfooter .button__newsletter {
   font-size: medium;
   margin-top: 40px;

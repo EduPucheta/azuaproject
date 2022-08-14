@@ -1,12 +1,3 @@
-$botones: #2100fa; 
+$botones: #343050; 
 $colorhovers:  #eb5140;
 $hover_trasition_Speed: 0.4s;
-$navegacion:  #343050;
-$titulos: white;
-$titulo-hero :black;
-$hero-background: rgb(241, 241, 241);
-
-@mixin flex($direction){
-    display: flex;
-    flex-direction: $direction;
-}
