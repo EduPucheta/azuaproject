@@ -2,7 +2,10 @@
 @import "./base/listas";
 @import "./base/maps";
 
-
+/* 
+npm init
+sass --watch scss/style.scss css/style.css 
+*/
 
 * {
   margin: 0;
@@ -14,20 +17,11 @@ body {
   font-style: normal;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-image: url(/assets/memphis-mini.png);
-  header {
-    a {
-      img {
-        margin: 5px;
-        height: 70px;
-        width: 120px;
-      }
-    }
-  }
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   div {
-    display: flex;
+    @include flex(row);
     flex-wrap: wrap;
-    flex-direction: row;
     justify-content: space-around;
     section {
       margin: 30px;
@@ -35,15 +29,14 @@ body {
       width: 500px;
       height: 500px;
       border-style: groove;
-      display: flex;
-      flex-direction: column;
+      @include flex(column);
       justify-content: space-evenly;
     }
   }
 }
 
 .dark-color{
-    background-color: $botones;
+    background-color: $navegacion;
 }
 
 .nav-link2{
@@ -65,25 +58,43 @@ body {
 }
 
 .navYfooter {
-  background-color: #5b585fff;
+  background-color: $navegacion;
   padding: 24px;
 }
+
+
+.container, .my-5{
+  background-color: $hero-background;
+  div{
+    color: black;
+  }
+}
+
+
 
 .py-5 {
   padding-top: 1.5rem !important;
 }
 
+h1, .subtitulo { 
+  color: $titulo-hero
+} 
+
 h2 {
   border-left: 100px;
   display: flex;
   justify-content: center;
+  color: $titulos;
 }
 
 .Productos{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    
     .Productos__child{
         margin: 20px;
+        width: 100%;
     }
 }
 
@@ -94,14 +105,14 @@ p {
 
 .Contacto {
   margin: 10px;
-  width: 90%; 
+  width: 80%; 
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;  
+  max-width: 850px;
   iframe{
     width: 100%;
-  } 
+  }
 }
-
 
 .contenidoIndex {
   margin-left: auto;
@@ -148,7 +159,7 @@ select {
 
 .bttn {
   display: block;
-  background: #343050;
+  background: $botones;
   width: 75%;
   color: white;
   padding: 0.5rem;
@@ -163,12 +174,11 @@ select {
   }
 }
 
-.Footer__socialMedia {
-  size: 20px;
-}
+
 
 /*La siguiente media query es para que la grilla solo se aplique en desktop
   y para que se muestren los elementos en una sola columna en mobile*/
+
 
 @media screen and (min-width: 768px) {
   .grilla {
@@ -177,41 +187,35 @@ select {
     grid-template-rows: 60px 25px 40px;
     grid-row-gap: 15px;
     grid-template-areas:
-      "whatsapp instagram facebook"
+      "Footer__social Footer__social Footer__social"
       "newletter_label newletter_label button__newsletter"
       "newletter_input newletter_input button__newsletter";
+      
+      .newletter_label {
+        grid-area: newletter_label;
+      }
+      .newletter_input {
+        grid-area: newletter_input;
+      }
+      .button__newsletter {
+        grid-area: button__newsletter;
+      }
+      .Footer__social{
+        grid-area: Footer__social;
+        display: flex;
+        flex-direction: row;
+      }
+      
   }
 }
 
-.whatsapp {
-  grid-area: whatsapp;
+.navYfooter {
+  .newletter_label {
+    color: white;
 }
-.instagram {
-  grid-area: instagram;
-}
-.facebook {
-  grid-area: facebook;
-}
-.newletter_label {
-  grid-area: newletter_label;
-}
-.newletter_input {
-  grid-area: newletter_input;
-}
-.button__newsletter {
-  grid-area: button__newsletter;
-}
-
-.Footer__socialMedia {
-  display: flex;
-  justify-content: center;
-}
-
-.navYfooter .newletter_label {
-  color: white;
-}
-
-.navYfooter .button__newsletter {
+  .button__newsletter {
   font-size: medium;
   margin-top: 40px;
 }
+}
+
